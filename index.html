@@ -41,7 +41,9 @@
     <section id="sobre" class="secao">
         <h2 class="sobre-titulo">Sobre Mim</h2>
         <div class="sobre-caixa">
-            <p class="sobre-texto">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, ex repellendus doloremque sapiente in fugiat sit aliquam totam. Illum inventore, accusamus quisquam qui nihil dolores alias dolorum eveniet quos suscipit.</p>
+            <p class="sobre-texto">Sou Cientista de Dados em formação pela PUC Minas. Atualmente trabalho com dados no mercado financeiro na construção de projetos de automação para Agent Investment, Gestão de Patrimônios e Business Inteligence. Para mais, meu foco atual é em projetos
+                end-to-end de BI, focando em ETL e na exposição dos resultados para os gestores.
+            </p>
         </div>
     </section>
 
@@ -50,30 +52,34 @@
         
         <div class="projetos-caixa">
             <div class="projetos-card">
-                <img src="" alt="Projeto 1" class="projetos-imagem">
+                <img src="./img/artigo-sbbd.png" alt="Projeto 1" class="projetos-imagem">
                 <div class="caixa-textos-projeto">
-                    <h3 class="info-projetos">Projeto 1</h3>
-                    <p class="texto-projeto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, quaerat minima, distinctio soluta corrupti ipsum assumenda aspernatur suscipit corporis non dolores quod, quia veniam consectetur modi alias atque excepturi aliquam!</p>
+                    <h3 class="info-projetos">Mineração de Dados Para Caracterizar Indivíduos Hipertensos com Doenças Cardiovasculares</h3>
+                    <p class="texto-projeto">Projeto que consistiu na criação de uma base de dados ideal para aplicações de Machine Learning, a base usou como referência a Pesquisa Nacional de Saúde 2019 disponibilizada pelo IBGE. O trabalho
+                        foi publicado no Congresso SBBD 2025 (Sociedade Brasileira de Banco de Dados) na Trilha Principal do Evento.
+                    </p>
                 </div>
             </div>
-        </div>
 
-        <div class="projetos-caixa">
             <div class="projetos-card">
-                <img src="" alt="Projeto 2" class="projetos-imagem">
+                <img src="./img/gerenciamento-leads-n8n.png" alt="Projeto 2" class="projetos-imagem">
                 <div class="caixa-textos-projeto"> 
-                    <h3 class="info-projetos">Projeto 2</h3>
-                    <p class="texto-projeto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, quaerat minima, distinctio soluta corrupti ipsum assumenda aspernatur suscipit corporis non dolores quod, quia veniam consectetur modi alias atque excepturi aliquam!</p>
+                    <h3 class="info-projetos">Gerenciamento de Leads</h3>
+                    <p class="texto-projeto">O projeto teve por objetivo criar uma automação capaz de lidar com as demandas preenchidas por leads via formulário, a automação capta as informações
+                        contrói um card dentro de uma lista correspondente à categoria da empresa que lida com esse segmento. Além disso, há a criação automática de um checklist de tarefas à se fazer para cumprir
+                        essa demanda. Por fim, utilizou-se agente para criar um e-mail de resposta ao cliente informando sobre o recebimento do projeto e requisitando uma data de reunião para discutir o projeto
+                        de forma mais detalhada para ser desenvolvido.
+                    </p>
                 </div>
             </div>
-        </div>
 
-        <div class="projetos-caixa">
             <div class="projetos-card">
-                <img src="" alt="Projeto 3" class="projetos-imagem">
+                <img src="./img/projeto-eda-dados.png" alt="Projeto 3" class="projetos-imagem">
                 <div class="caixa-textos-projeto">
-                    <h3 class="info-projetos">Projeto 3</h3>
-                    <p class="texto-projeto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, quaerat minima, distinctio soluta corrupti ipsum assumenda aspernatur suscipit corporis non dolores quod, quia veniam consectetur modi alias atque excepturi aliquam!</p>
+                    <h3 class="info-projetos">Análise Exploratória de Dados</h3>
+                    <p class="texto-projeto">Projeto que envolveu análise estatística minuciosa sobre o mercado de tecnologia na área de dados, seus diferentes cargos, salários, localizações e empresas. A técnica
+                        de análise exploratória de dados pode ser aplicada em qualquer contexto que há a disponibilização de dados.
+                    </p>
                 </div>
             </div>
         </div>
@@ -81,17 +87,37 @@
 
     <section id="contatos" class="contatos">
         <h2 class="contatos-titulo">Entre em Contato</h2>
-        <form class="contatos-formulario" id="formulario">
+        <form class="contatos-formulario" id="formulario" onsubmit="enviarWpp(event)">
             <div class="grupo-form">
-                <input placeholder="Nome" class="campo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
             </div>
             <div class="grupo-form">
-                <textarea class="campo-form" placeholder="Digite sua mensagem"></textarea>
+                <textarea class="campo-form" placeholder="Digite sua mensagem" rows=4 id="mensagem"></textarea>
             </div>
 
             <button type="submit" class="botao-formulario">Enviar Mensagem</button>
         </form>
     </section>
+
+    <script>
+
+        function enviarWpp(event){
+
+            event.preventDefault()
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5531999725862';
+
+            const texto = `Olá! Me chamo ${nome}, ${mensagem}`
+            const msgFormatada = encodeURIComponent(texto)
+
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+
+            window.open(url, '_blank')
+            }
+
+    </script>
 
 </body>
 </html>
